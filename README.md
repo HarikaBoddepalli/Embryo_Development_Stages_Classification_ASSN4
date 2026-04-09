@@ -6,7 +6,7 @@ Automated 16-class morphokinetic stage classification of human embryo time-lapse
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Dataset](#dataset)
