@@ -1,4 +1,4 @@
-# 🧬 Embryo Development Stage Classification
+# Embryo Development Stage Classification
 
 **Assignment 4 — Deep Learning for Medical Image Processing**
 
@@ -103,9 +103,9 @@ L_DL = ( Σ_c [ p_c · |c - y| ] )²
 ```
 
 **Proved properties:**
-- ✅ **Monotonically increasing** — D² strictly increases as prediction mass moves away from true class
-- ✅ **Differentiable** — D is linear in softmax outputs; D² is smooth everywhere. ∂L_DL/∂p_c = 2D·|c−y|
-- ✅ **Faster convergence** — large gradient signal early in training when predictions are distant; acts as implicit curriculum
+- **Monotonically increasing** — D² strictly increases as prediction mass moves away from true class
+- **Differentiable** — D is linear in softmax outputs; D² is smooth everywhere. ∂L_DL/∂p_c = 2D·|c−y|
+- **Faster convergence** — large gradient signal early in training when predictions are distant; acts as implicit curriculum
 
 ### Component 3 — Piecewise Penalty Loss (L_PL)
 
@@ -122,9 +122,9 @@ W(y,c)=⎨  α · |c−y|          if |c−y| ≤ δ   (linear zone)
 Parameters: **α = 1.0**, **β = 2.0**, **δ = 3**
 
 **Proved properties:**
-- ✅ **Monotonically increasing** — W is non-decreasing in |c−y| since α, β > 0
-- ✅ **Piecewise differentiable** — both linear and quadratic zones have well-defined gradients; boundary at δ=3 is a single non-differentiable point (never reached for integer distances)
-- ✅ **Faster convergence** — quadratic penalty (β·d²) for distant errors creates very large gradients early in training, rapidly correcting large ordinal errors
+- **Monotonically increasing** — W is non-decreasing in |c−y| since α, β > 0
+- **Piecewise differentiable** — both linear and quadratic zones have well-defined gradients; boundary at δ=3 is a single non-differentiable point (never reached for integer distances)
+- **Faster convergence** — quadratic penalty (β·d²) for distant errors creates very large gradients early in training, rapidly correcting large ordinal errors
 
 ---
 
@@ -152,7 +152,7 @@ All models use **ImageNet pretrained weights** with a custom classification head
 - **Head:** GAP(512) → Dense(512) → BN → Dropout(0.5) → Dense(256) → Dropout(0.4) → Dense(16)
 - **Fine-tuning:** Block5 (last conv block) trainable
 
-### 5. VGG19 + Residual Connections ⭐ Best
+### 5. VGG19 + Residual Connections -- Best
 - **Key idea:** VGG19 depth + skip connections in dense head to combat vanishing gradients
 - **Residual Block 1:** Dense(512) + BN + ReLU + Dropout(0.3) + **Identity shortcut** (512→512)
 - **Residual Block 2:** Dense(256) + BN + ReLU + Dropout(0.3) + **Projection shortcut** (512→256, no bias)
@@ -229,7 +229,6 @@ Go to [kaggle.com](https://www.kaggle.com) → Profile → Settings → API → 
 
 Run cells in order. When prompted in Step 3, upload your `kaggle.json`. The dataset (~12 GB) will download and extract automatically.
 
-> ⚠️ The dataset download takes 20–40 minutes. The full training run takes approximately 3–4 hours on a T4 GPU.
 
 ### Key Cells
 
@@ -268,6 +267,3 @@ All installed automatically by the first notebook cell.
 
 ---
 
-## Reference
-
-Gomez, T., Feyeux, M., Boulant, J., Normand, N., David, L., Paul-Gilloteaux, P., Fréour, T., & Mouchère, H. (2022). *A time-lapse embryo dataset for morphokinetic parameter prediction*. Data in Brief, 42, 108258. https://doi.org/10.1016/j.dib.2022.108258
