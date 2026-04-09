@@ -2,7 +2,7 @@
 
 **Assignment 4 — Deep Learning for Medical Image Processing**
 
-Automated 16-class morphokinetic stage classification of human embryo time-lapse images using custom loss functions and pretrained CNN architectures.
+16-class morphokinetic stage classification of human embryo time-lapse images using custom loss functions and pretrained CNN architectures.
 
 ---
 
